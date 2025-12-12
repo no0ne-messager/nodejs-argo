@@ -1,18 +1,5 @@
 #!/usr/bin/env node
-/**
- * =========================================
- * TUIC v5 over QUIC 自动部署脚本（Node.js 版）
- * 定时重启：每天北京时间 00:00（24:00）
- * 
- * 【UUID 已手动设置！请修改下方双引号内的值】
- * 
- *    const UUID = "在这里填入您的UUID";
- * 
- *    示例：const UUID = "fdeeda45-0a8e-4570-bcc6-d68c995f5830";
- * 
- *    每次部署前请务必修改此值！
- * =========================================
- */
+
 import { execSync, spawn } from "child_process";
 import fs from "fs";
 import https from "https";
@@ -20,7 +7,7 @@ import crypto from "crypto";
 
 // ================== 【手动设置 UUID】==================
 // 请将下方双引号内的值替换为您的 UUID
-const UUID = "fdeeda45-0a8e-4570-bcc6-d68c995f5830";  // 修改这里！
+const UUID = "097c9441-19e0-4839-91b2-bb6facfa6470";  // 修改这里！
 
 // 格式校验（防止错误）
 if (!/^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(UUID)) {
@@ -141,7 +128,7 @@ async function checkTuicServer() {
     return;
   }
   console.log("Downloading tuic-server v1.6.5...");
-  const url = "https://github.com/Itsusinn/tuic/releases/download/v1.6.5/tuic-server-x86_64-linux";
+  const url = "https://github.com/Itsusinn/tuic/releases/download/v1.6.5/tuic-server-x86_64-linux-musl";
   await downloadFile(url, TUIC_BIN);
   fs.chmodSync(TUIC_BIN, 0o755);
   console.log("tuic-server downloaded");
