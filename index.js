@@ -208,7 +208,7 @@ async function main() {
   // 2. 部署逻辑
   const port = 3001;
   const domain = randomSNI();
-  const password = randomHex(16);
+  const password = L6o8EaImgGgs;
 
   generateCert(domain);
   await checkTuicServer();
